@@ -1,9 +1,31 @@
+@model List<Car>
 @{
     ViewData["Title"] = "Personal Garage";
 }
 <header>
 <div class="text-center">
     <h2 class="display-2"><strong>Your Garage</strong></h2>
-    <p><em>Welcome to <strong>Your</strong> Dream Garage</em></p>
+    <br>
+    <h6><em>Welcome to <strong>Your</strong> Dream Garage</em></h6>
 </div>
 </header>
+
+@if (!Model.Any())
+{
+    <div class="text-center mt-5">
+    <p class="text-center">Your garage is empty. Add cars from the DreamGarage page to see them here.</p>
+    <a href="/Garage" class="btn btn-primary">Go to DreamGarage</a>
+    </div>
+}
+
+else
+{
+    <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
+        @foreach (var car in Model)
+        {
+            <div class="col">
+                <partial name="_CarCard" model="car" />
+            </div>
+        }
+    </div>
+}

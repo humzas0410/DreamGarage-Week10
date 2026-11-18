@@ -65,6 +65,11 @@
                     <h5 class="card-title">@review.Rating / 5</h5>
                     <h6 class="card-subtitle mb-2 text-muted">@review.ReviewerName</h6>
                     <p class="card-text">@review.Comment</p>
+                    <form asp-action="DeleteReview" method="post">
+                        <input type="hidden" name="id" value="@review.Id" />
+                        <input type="hidden" name="carId" value="@Model.Id" />
+                        <button type="submit" class="btn btn-sm btn-danger">Delete Review</button>
+                    </form>
                 </div>
             </div>
         </div>

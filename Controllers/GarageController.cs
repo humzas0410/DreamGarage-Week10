@@ -21,7 +21,7 @@ public class GarageController : Controller
     }
     public IActionResult Cars()
     {
-        return View(_context.Cars.ToList());
+        return View(new List<Car>());
     }
     public IActionResult Details(int id)
     {
@@ -82,6 +82,23 @@ public class GarageController : Controller
         await _context.SaveChangesAsync();
 
         return RedirectToAction(nameof(Details), new { id = car.Id });
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> DeleteReview(int id, int carId)
+    {
+        var review = await _context.CarReviews
+            .FirstOrDefaultAsync(review => review.Id == id && review.CarId == carId);
+        if (review == null)
+        {
+            return NotFound();
+        }
+
+        _context.CarReviews.Remove(review);
+        await _context.SaveChangesAsync();
+
+        return RedirectToAction(nameof(Details), new { id = carId });
     }
 
     private async Task<SelectList> GetCarsSelectListAsync(int? selectedCarId)
