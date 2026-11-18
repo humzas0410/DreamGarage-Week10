@@ -26,6 +26,9 @@ public class Car
     public bool IsHybrid { get; set; }
     [Display(Name = "Drivetrain:")]
     public string? Drivetrain { get; set; }
+    [Display(Name = "Image URL")]
+    [Url(ErrorMessage = "Please enter a valid image URL.")]
+    public string ImageUrl { get; set; } = "";
 
     public ICollection<CarReview> Reviews { get; set; } = new List<CarReview>();
 }

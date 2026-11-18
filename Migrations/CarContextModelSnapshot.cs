@@ -39,6 +39,10 @@ namespace DreamGarage.Migrations
                     b.Property<int>("Horsepower")
                         .HasColumnType("int");
 
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("IsElectric")
                         .HasColumnType("bit");
 
@@ -76,6 +80,7 @@ namespace DreamGarage.Migrations
                             Color = "Orange",
                             Drivetrain = "RWD",
                             Horsepower = 710,
+                            ImageUrl = "https://placehold.co/800x450/orange/white?text=McLaren+720S",
                             IsElectric = false,
                             IsHybrid = false,
                             Make = "McLaren",
@@ -90,6 +95,7 @@ namespace DreamGarage.Migrations
                             Color = "Black",
                             Drivetrain = "AWD",
                             Horsepower = 580,
+                            ImageUrl = "https://media.carsandbids.com/cdn-cgi/image/width=2080,quality=70/9004500a220bf3a3d455d15ee052cf8c332606f8/photos/3gq6xaNP-5Zzhy1THp9-(edit).jpg?t=165820835234",
                             IsElectric = false,
                             IsHybrid = false,
                             Make = "Porsche",
@@ -104,6 +110,7 @@ namespace DreamGarage.Migrations
                             Color = "Lime",
                             Drivetrain = "AWD",
                             Horsepower = 759,
+                            ImageUrl = "https://www.exclusiveautomotivegroup.com/imagetag/3448/main/l/Used-2022-Lamborghini-Aventador-1669662938.jpg",
                             IsElectric = false,
                             IsHybrid = false,
                             Make = "Lamborghini",
@@ -118,6 +125,7 @@ namespace DreamGarage.Migrations
                             Color = "Blue",
                             Drivetrain = "AWD",
                             Horsepower = 627,
+                            ImageUrl = "https://images.hgmsites.net/med/2021-bmw-5-series_100749425_m.jpg",
                             IsElectric = false,
                             IsHybrid = false,
                             Make = "BMW",
@@ -132,6 +140,7 @@ namespace DreamGarage.Migrations
                             Color = "Red",
                             Drivetrain = "AWD",
                             Horsepower = 631,
+                            ImageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCzXMrQ-8uctEwhXVIFMlsXrUwDXIsD-10xRob7ip8Yg&s=10",
                             IsElectric = false,
                             IsHybrid = true,
                             Make = "Audi",
@@ -146,6 +155,7 @@ namespace DreamGarage.Migrations
                             Color = "Silver",
                             Drivetrain = "AWD",
                             Horsepower = 2107,
+                            ImageUrl = "https://hips.hearstapps.com/hmg-prod/images/2025-rimac-nevera-pr-101-691b428773e01.jpg?crop=0.780xw:0.656xh;0.175xw,0.344xh&resize=2048:*",
                             IsElectric = true,
                             IsHybrid = false,
                             Make = "Rimac",

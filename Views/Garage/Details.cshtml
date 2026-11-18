@@ -5,6 +5,7 @@
 
 <h1 class="display-3 text-center">@Model.Make @Model.Model @Model.Trim</h1>
 <div class="container text-center">
+    <div class="d-none d-md-block">
     <table class="table table-striped">
     <thead>
     <tr>
@@ -27,7 +28,7 @@
             <td>@Model.Trim</td>
             <td>@Model.Year</td>
             <td>@Model.Color</td>
-            <td>@Model.Price</td>
+            <td>@Model.Price.ToString("C0", System.Globalization.CultureInfo.GetCultureInfo("en-US"))</td>
             <td>@Model.Horsepower</td>
             <td>
                 @if (Model.IsElectric)
@@ -53,6 +54,57 @@
         </tr>
     </tbody>
 </table>
+    </div>
+    @* Mobile view / Label & Value Pairs *@
+    <dl class="d-md-none text-start mx-auto" style="max-width: 300px;">
+        <div class="row py-2 border-bottom">
+            <dt class="col-5 mb-0">Make</dt>
+            <dd class="col-7 mb-0 text-end">@Model.Make</dd>
+        </div>
+        <div class="row py-2 border-bottom">
+            <dt class="col-5 mb-0">Model</dt>
+            <dd class="col-7 mb-0 text-end">@Model.Model</dd>
+        </div>
+        <div class="row py-2 border-bottom">
+            <dt class="col-5 mb-0">Trim</dt>
+            <dd class="col-7 mb-0 text-end">@Model.Trim</dd>
+        </div>
+        <div class="row py-2 border-bottom">
+            <dt class="col-5 mb-0">Year</dt>
+            <dd class="col-7 mb-0 text-end">@Model.Year</dd>
+        </div>
+        <div class="row py-2 border-bottom">
+            <dt class="col-5 mb-0">Color</dt>
+            <dd class="col-7 mb-0 text-end">@Model.Color</dd>
+        </div>
+        <div class="row py-2 border-bottom">
+            <dt class="col-5 mb-0">Price</dt>
+            <dd class="col-7 mb-0 text-end">@Model.Price.ToString("C0", System.Globalization.CultureInfo.GetCultureInfo("en-US"))</dd>
+        </div>
+        <div class="row py-2 border-bottom">
+            <dt class="col-5 mb-0">Horsepower</dt>
+            <dd class="col-7 mb-0 text-end">@Model.Horsepower</dd>
+        </div>
+        <div class="row py-2 border-bottom">
+            <dt class="col-5 mb-0">Electric?</dt>
+            <dd class="col-7 mb-0 text-end">@(Model.IsElectric)</dd>
+        </div>
+        <div class="row py-2 border-bottom">
+            <dt class="col-5 mb-0">Hybrid?</dt>
+            <dd class="col-7 mb-0 text-end">@(Model.IsHybrid)</dd>
+        </div>
+        <div class="row py-2 border-bottom">
+            <dt class="col-5 mb-0">Drivetrain</dt>
+            <dd class="col-7 mb-0 text-end">@(Model.Drivetrain)</dd>
+        </div>
+    </dl>
+    @if (!string.IsNullOrEmpty(Model.ImageUrl))
+    {
+        <img src="@Model.ImageUrl"
+             alt="@Model.Make @Model.Model @Model.Trim"
+             class="img-fluid rounded shadow-sm mb-4"
+             style="max-height: 350px; object-fit: cover;" />
+    }
 <h2 class="h4 mt-4">Reviews</h2>
 @if (Model.Reviews.Any())
 {
