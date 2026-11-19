@@ -13,10 +13,19 @@
 <a href="/Garage/AddReview" class="btn btn-success mb-3">Add a Review</a>
 
 <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
-    @foreach (var car in Model)
+    @if (Model.Any())
     {
-        <div class="col">
-            <partial name="_CarCard" model="car" />
+        @foreach (var car in Model)
+        {
+            <div class="col">
+                <partial name="_CarCard" model="car" />
+            </div>
+        }
+    }
+    else {
+        <div class="text-center mt-5">
+            <p class="text-center">No cars found in the garage. Add cars to see them here.</p>
+            <a href="/Garage/Create" class="btn btn-primary">Add a Car</a>
         </div>
     }
 </div>
